@@ -7,7 +7,7 @@ void *memcpy(void *dest,const void *src,size_t count){
         *dp++=*sp++;
 }
 
-void *memset(void *dest, unsigned char val, size_t count){
+void *memset(void *dest, char val, size_t count){
     char *dp=(char *)dest;
     for(;count!=0;count--){
         *dp++=val;
@@ -34,6 +34,12 @@ void outportb (unsigned short _port, unsigned char _data){
 }
 
 void main(){
-    //puts("hello");
+    
+    gdt_install();
+    
+    init_video();
+
+    puts("Hello World!");
+
     for(;;);
 }
